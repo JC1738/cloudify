@@ -762,7 +762,7 @@ public class JCloudsDeployer {
         }
 
         throw new TimeoutException("Timed out while waiting for machines " +  toIps(machines) + " to terminate. Make " +
-                "sure this machines are terminated.");
+                "sure these machines are terminated.");
     }
 
     public void shutdownNodeAsync(final String id) {

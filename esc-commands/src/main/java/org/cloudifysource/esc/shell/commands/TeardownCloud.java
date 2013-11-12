@@ -32,6 +32,7 @@ import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
 import org.cloudifysource.domain.cloud.Cloud;
+import org.cloudifysource.dsl.internal.CloudifyConstants;
 import org.cloudifysource.dsl.internal.ServiceReader;
 import org.cloudifysource.dsl.utils.RecipePathResolver;
 import org.cloudifysource.esc.driver.provisioning.jclouds.DefaultProvisioningDriver;
@@ -65,7 +66,10 @@ public class TeardownCloud extends AbstractGSCommand {
 	private String cloudProvider;
 
 	@Option(required = false, name = "-timeout",
-			description = "The number of minutes to wait until the operation is done. ")
+			description = "The number of minutes to wait for all existing applications to be uninstalled before " +
+                    "destroying the management machines. To configure the timeout for the management machines " +
+                    "shutdown use the  " + CloudifyConstants.STOP_MANAGEMENT_TIMEOUT_IN_MINUTES + " property in the " +
+                    "custom section of the cloud driver.")
 	private int timeoutInMinutes = DEFAULT_TIMEOUT_MINUTES;
 
 	@Option(required = false, name = "-force",

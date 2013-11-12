@@ -225,6 +225,9 @@ cloud {
 	 */
 	custom ([
 		"org.cloudifysource.clearRemoteDirectoryOnStart" : true,
+
+        // number of minutes to wait for the management machines to shutdown.
+        // note that this timeout does not affect the time for existing applications to be uninstalled.
         "org.cloudifysource.stop-management-timeout-in-minutes" : 15
 	])
 }
