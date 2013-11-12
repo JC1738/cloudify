@@ -30,6 +30,7 @@
     <property name="openstack.dir" value="${esc.dir}/openstack/upload/cloudify-overrides" />
     <property name="privateEc2.dir" value="${esc.dir}/privateEc2/upload/cloudify-overrides" />
     <property name="rackspace.dir" value="${esc.dir}/rackspace/upload/cloudify-overrides" />
+    <property name="softlayer.dir" value="${esc.dir}/softlayer/upload/cloudify-overrides" />
 	
 
 	<macrodef name="copy_binaries">
@@ -58,12 +59,17 @@
 	</target>
 
     <!--Cloud Override-->
-	<target name="Copy Cloudify jars to devstack dir" depends="">
+	<target name="Copy Cloudify jars to devstack upload dir" depends="">
         <echo message="Copying Cloudify jar files to ${devstack.dir}" />
         <copy_binaries target.dir="${devstack.dir}" />
     </target>
 
-	<target name="Copy Cloudify jars to azure upload dir" depends="">
+    <target name="Copy Cloudify jars to softlayer upload dir" depends="">
+        <echo message="Copying Cloudify jar files to ${devstack.dir}" />
+        <copy_binaries target.dir="${softlayer.dir}" />
+    </target>
+
+    <target name="Copy Cloudify jars to azure upload dir" depends="">
 		<echo message="Copying Cloudify jar files to ${ec2.dir}" />
 		<copy_binaries target.dir="${azure.dir}" />
 	</target>
